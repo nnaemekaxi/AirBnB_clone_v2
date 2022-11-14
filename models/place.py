@@ -43,7 +43,7 @@ class Place(BaseModel, Base):
         """initializes Place"""
         super().__init__(*args, **kwargs)
 
-    if models.storage_type != "db":
+    if getenv('HBNB_TYPE_STORAGE') == "db":
         @property
         def reviews(self):
             """Get a list of all Reviews"""
